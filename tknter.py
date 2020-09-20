@@ -31,6 +31,7 @@ import keras
 from scipy.stats import gamma 
 from nltk.corpus import stopwords
 
+from tkinter import PhotoImage,Frame,Label,Tk
 
 from nlppreprocess import NLP
 
@@ -100,6 +101,25 @@ def pre_pro(text):
   text = re.sub(r'\s+', ' ', text)
 
   return text
+
+class frame_out(Frame):
+    def __init__(self,root,foo):
+        super().__init__(root)
+        if foo:
+            self.pos_()
+        else:
+            self.neg_()
+    def pos_(self):
+        self.img = PhotoImage(file=r"pos_img.jpg")
+        self.labb = Label(Frame,image=self.img)
+        self.label = Label(text="positive")
+    def neg_(self):
+        self.img = PhotoImage(file=r"neg_img.jpg")
+        self.labb = Label(self,image=self.img)
+        self.Label = Label(text="negative")
+    def place_l(self):
+        self.labb.place(relwidth=1,relheight=1)
+        self.label.place(relheight=0.5,relwidth=0.5)
 
 a= input("enter the sentence : ")
 a=pre_pro(a)
