@@ -30,7 +30,7 @@ from sklearn.model_selection import train_test_split
 import keras
 from scipy.stats import gamma 
 from nltk.corpus import stopwords
-
+from PIL import ImageIk,Image
 from tkinter import PhotoImage,Frame,Label,Tk
 
 from nlppreprocess import NLP
@@ -110,11 +110,11 @@ class frame_out(Frame):
         else:
             self.neg_()
     def pos_(self):
-        self.img = PhotoImage(file=r"pos_img.jpg")
-        self.labb = Label(Frame,image=self.img)
+        img = ImageIk.PhotoImage(Image.open("pos_img.jpg"))
+        self.labb = Label(Frame,image=img)
         self.label = Label(text="positive")
     def neg_(self):
-        self.img = PhotoImage(file=r"neg_img.jpg")
+        img = ImageIk.PhotoImage(Image.open("neg_img.jpg"))
         self.labb = Label(self,image=self.img)
         self.Label = Label(text="negative")
     def place_l(self):
